@@ -26,10 +26,11 @@ document.addEventListener('DOMContentLoaded', function () {
 // kind: 'weekly' (weekday), 'nth' (nth weekday of the month, -1 = last),
 // or 'yearly' (nth weekday of a given month). day: 0 = Sunday ... 6 = Saturday.
 var FG_EVENTS = [
-  { kind: 'weekly', day: 3, title: 'Wednesday Gathering', place: 'Bradenton', note: 'Preaching, prayer and a home-cooked meal, then the mobile route' },
+  { kind: 'weekly', day: 3, title: 'Wednesday Gathering', place: '1701 14th Street W, Bradenton', note: 'Preaching, prayer and a home-cooked meal, then the mobile route' },
   { kind: 'nth', day: 0, n: 3, title: 'Bradenton Outreach', place: 'Bradenton', note: 'Monthly Sunday outreach' },
-  { kind: 'nth', day: 0, n: -1, title: 'Arcadia Outreach', place: 'Arcadia', note: 'Monthly outreach, last Sunday' },
-  { kind: 'yearly', month: 11, day: 6, n: 1, title: 'Manatee County Christmas', place: 'Manatee County', note: 'Christmas for families who might not otherwise have one', gold: true }
+  { kind: 'nth', day: 0, n: -1, title: 'Arcadia Outreach', place: '414 S. Brevard Ave, Arcadia', note: 'Monthly outreach, last Sunday' },
+  { kind: 'yearly', month: 11, day: 6, n: 1, title: 'Manatee County Christmas', place: 'Manatee County', note: 'Christmas for families who might not otherwise have one', gold: true },
+  { kind: 'once', year: 2026, month: 11, date: 12, title: 'Arcadia Christmas', place: '414 S. Brevard Ave, Arcadia', note: 'Christmas party and gift giveaway', gold: true }
 ];
 
 function nthWeekday(year, month, day, n) {
@@ -48,7 +49,9 @@ function eventsFor(year, month) {
   var add = function (date, ev) { (out[date] = out[date] || []).push(ev); };
   var days = new Date(year, month + 1, 0).getDate();
   FG_EVENTS.forEach(function (ev) {
-    if (ev.kind === 'weekly') {
+    if (ev.kind === 'once') {
+      if (ev.year === year && ev.month === month) add(ev.date, ev);
+    } else if (ev.kind === 'weekly') {
       for (var d = 1; d <= days; d++) if (new Date(year, month, d).getDay() === ev.day) add(d, ev);
     } else if (ev.kind === 'nth' || (ev.kind === 'yearly' && ev.month === month)) {
       var date = nthWeekday(year, month, ev.day, ev.n);
