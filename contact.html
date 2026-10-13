@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact, Volunteer &amp; Speaking | Freedom Gathering</title>
+  <meta name="description" content="Volunteer with Freedom Gathering, invite us to speak at your church or event, or send us a message.">
+  <meta property="og:title" content="Contact, Volunteer &amp; Speaking | Freedom Gathering">
+  <meta property="og:description" content="Volunteer with Freedom Gathering, invite us to speak at your church or event, or send us a message.">
+  <meta property="og:image" content="https://freedomgathering.net/assets/img/og.jpg">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip">Skip to content</a>
+
+  <nav class="navbar" aria-label="Main">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="assets/img/logo-mark.png" alt=""><span class="nav-word">Freedom Gathering<small>The Heartbeat of God</small></span></a>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="about.html">About</a>
+        <a href="events.html">Events</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="team.html">Team</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html" class="active" aria-current="page">Contact</a>
+        <a href="give.html" class="nav-cta">Donate</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <header class="banner">
+      <div class="wrap">
+        <div class="kicker gold">Contact</div>
+        <h1>Let's talk</h1>
+        <p>Want to serve, want us to come speak, or just have a question? Pick one below and we'll get back to you.</p>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="wrap" style="max-width:860px">
+        <div class="tabs">
+          <a href="#volunteer">Volunteer</a>
+          <a href="#speak">Invite Us To Speak</a>
+          <a href="#message">Send a Message</a>
+        </div>
+
+        <!-- TODO before launch: point all three forms at the intake handler (GHL form or worker). -->
+        <h2 id="volunteer" style="font-size:40px;margin:30px 0 8px">Volunteer</h2>
+        <p style="margin-bottom:18px">Cook, serve, drive, pray, set up, or help at a pop-up. Every person on our team is a volunteer, and there is room for you.</p>
+        <form class="form" action="#" method="POST" data-form="volunteer">
+          <div class="row">
+            <label>Name<input name="name" autocomplete="name" required></label>
+            <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+          </div>
+          <label>Email<input name="email" type="email" autocomplete="email" required></label>
+          <label>Where would you like to help?
+            <select name="interest">
+              <option>Wednesday gathering</option>
+              <option>Mobile route</option>
+              <option>Neighborhood pop-ups</option>
+              <option>Nursing home and hospice visits</option>
+              <option>Christmas events</option>
+              <option>Wherever I'm needed</option>
+            </select>
+          </label>
+          <label>Anything we should know?<textarea name="message"></textarea></label>
+          <button class="btn btn-red" type="submit">Sign Me Up</button>
+        </form>
+
+        <h2 id="speak" style="font-size:40px;margin:60px 0 8px">Invite Us To Speak</h2>
+        <p style="margin-bottom:18px">We love telling churches, groups and schools what God is doing on the streets of Manatee County.</p>
+        <form class="form" action="#" method="POST" data-form="speak">
+          <div class="row">
+            <label>Your name<input name="name" autocomplete="name" required></label>
+            <label>Church or organization<input name="organization" autocomplete="organization"></label>
+          </div>
+          <div class="row">
+            <label>Email<input name="email" type="email" autocomplete="email" required></label>
+            <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+          </div>
+          <div class="row">
+            <label>Event date<input name="date" type="date"></label>
+            <label>City<input name="city"></label>
+          </div>
+          <label>Tell us about the event<textarea name="message"></textarea></label>
+          <button class="btn btn-red" type="submit">Send Invitation</button>
+        </form>
+
+        <h2 id="message" style="font-size:40px;margin:60px 0 8px">Send a Message</h2>
+        <p style="margin-bottom:18px">Businesses with food to donate, partners, or anyone with a question.</p>
+        <form class="form" action="#" method="POST" data-form="message">
+          <div class="row">
+            <label>Name<input name="name" autocomplete="name" required></label>
+            <label>Email<input name="email" type="email" autocomplete="email" required></label>
+          </div>
+          <label>Message<textarea name="message" required></textarea></label>
+          <button class="btn btn-red" type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="cols">
+        <div class="brand">
+          <img src="assets/img/logo.png" alt="Freedom Gathering, The Heartbeat of God">
+          <p>A volunteer Christian food ministry serving Palmetto, Bradenton and Manatee County, Florida.</p>
+        </div>
+        <div>
+          <h4>Get Involved</h4>
+          <a href="give.html">Donate</a>
+          <a href="contact.html#volunteer">Volunteer</a>
+          <a href="contact.html#speak">Invite Us To Speak</a>
+          <a href="events.html">Events</a>
+        </div>
+        <div>
+          <h4>Learn More</h4>
+          <a href="about.html">About</a>
+          <a href="team.html">Team</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <a href="contact.html">Send us a message</a>
+          <!-- TODO: ministry phone and email once Cathy confirms which ones to publish -->
+        </div>
+      </div>
+      <div class="legal">
+        <span>&copy; 2026 Freedom Gathering Church Inc.</span>
+        <span>Site by <a href="https://provb3global.com" style="display:inline">Proverbs 3 Global</a></span>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
