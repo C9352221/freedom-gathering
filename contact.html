@@ -51,10 +51,11 @@
           <a href="#message">Send a Message</a>
         </div>
 
-        <!-- TODO before launch: point all three forms at the intake handler (GHL form or worker). -->
+        <!-- Forms send by email through FormSubmit. The address lives in js/main.js (FG_FORM_EMAIL). -->
         <h2 id="volunteer" style="font-size:40px;margin:30px 0 8px">Volunteer</h2>
         <p style="margin-bottom:18px">Cook, serve, drive, pray, set up, or help at a pop-up. Every person on our team is a volunteer, and there is room for you.</p>
         <form class="form" action="#" method="POST" data-form="volunteer">
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="row">
             <label>Name<input name="name" autocomplete="name" required></label>
             <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
@@ -72,11 +73,13 @@
           </label>
           <label>Anything we should know?<textarea name="message"></textarea></label>
           <button class="btn btn-red" type="submit">Sign Me Up</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
         </form>
 
         <h2 id="speak" style="font-size:40px;margin:60px 0 8px">Invite Us To Speak</h2>
         <p style="margin-bottom:18px">We love telling churches, groups and schools what God is doing on the streets of Manatee County.</p>
         <form class="form" action="#" method="POST" data-form="speak">
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="row">
             <label>Your name<input name="name" autocomplete="name" required></label>
             <label>Church or organization<input name="organization" autocomplete="organization"></label>
@@ -91,17 +94,20 @@
           </div>
           <label>Tell us about the event<textarea name="message"></textarea></label>
           <button class="btn btn-red" type="submit">Send Invitation</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
         </form>
 
         <h2 id="message" style="font-size:40px;margin:60px 0 8px">Send a Message</h2>
         <p style="margin-bottom:18px">Businesses with food to donate, partners, or anyone with a question.</p>
         <form class="form" action="#" method="POST" data-form="message">
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="row">
             <label>Name<input name="name" autocomplete="name" required></label>
             <label>Email<input name="email" type="email" autocomplete="email" required></label>
           </div>
           <label>Message<textarea name="message" required></textarea></label>
           <button class="btn btn-red" type="submit">Send</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>

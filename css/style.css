@@ -181,6 +181,11 @@ img{max-width:100%;display:block}
 .form input,.form select,.form textarea{font:inherit;font-size:17px;padding:12px 14px;border:1px solid #cfc8c0;border-radius:6px;background:#fff;color:var(--ink);width:100%}
 .form textarea{min-height:130px;resize:vertical}
 .form .note{font-size:14px;color:var(--muted)}
+.form .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.form-status{font-weight:700;min-height:1.2em}
+.form-status.ok{color:#1d7a35}
+.form-status.err{color:var(--red)}
+.form button[disabled]{opacity:.6;cursor:wait}
 .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
 .tabs a{padding:10px 18px;border:2px solid var(--ink);border-radius:6px;font-weight:700;color:var(--ink);text-transform:uppercase;font-size:14px;letter-spacing:.8px}
 .tabs a:hover{background:var(--ink);color:#fff}

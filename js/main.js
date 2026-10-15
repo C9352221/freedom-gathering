@@ -20,7 +20,50 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var cal = document.getElementById('calendar');
   if (cal) buildCalendar(cal);
+
+  document.querySelectorAll('form[data-form]').forEach(wireForm);
 });
+
+// Contact forms are emailed through FormSubmit (formsubmit.co). The first message
+// sent to a new address triggers a one-time "activate" email that must be clicked.
+var FG_FORM_EMAIL = 'cathyfreedomgathering@yahoo.com';
+var FG_FORM_SUBJECTS = {
+  volunteer: 'New volunteer sign-up from the website',
+  speak: 'Speaking invitation from the website',
+  message: 'New message from the website'
+};
+
+function wireForm(form) {
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var status = form.querySelector('.form-status');
+    var button = form.querySelector('button[type=submit]');
+    var data = {};
+    new FormData(form).forEach(function (v, k) { data[k] = v; });
+    if (data._honey) return; // a bot filled the hidden field
+    delete data._honey;
+    data._subject = FG_FORM_SUBJECTS[form.dataset.form] || 'Website message';
+    data._template = 'table';
+    data._captcha = 'false';
+    if (data.email) data._replyto = data.email;
+    button.disabled = true;
+    status.className = 'form-status';
+    status.textContent = 'Sending...';
+    fetch('https://formsubmit.co/ajax/' + FG_FORM_EMAIL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function (r) { return r.json(); }).then(function (res) {
+      if (String(res.success) !== 'true') throw new Error(res.message || 'failed');
+      form.reset();
+      status.className = 'form-status ok';
+      status.textContent = 'Thank you! We got your message and will be in touch soon.';
+    }).catch(function () {
+      status.className = 'form-status err';
+      status.textContent = 'Sorry, that did not go through. Please try again in a minute.';
+    }).then(function () { button.disabled = false; });
+  });
+}
 
 // The recurring schedule. Edit here and every calendar on the site updates.
 // kind: 'weekly' (weekday), 'nth' (nth weekday of the month, -1 = last),
