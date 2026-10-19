@@ -197,6 +197,9 @@ img{max-width:100%;display:block}
 .trust{font-size:15px;color:#bdb6ae;margin-top:18px}
 .needs{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .need{border:1px solid var(--line);border-radius:10px;padding:28px;background:#fff}
+.need-feature{margin-bottom:24px;border:2px solid var(--red);text-align:center}
+.need-feature p{max-width:680px;margin:0 auto 18px}
+.need-feature .btn-row{justify-content:center}
 .need h3{font-size:28px;margin:6px 0 10px}
 
 /* closing call to action */
