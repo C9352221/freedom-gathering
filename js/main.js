@@ -69,16 +69,19 @@ function wireForm(form) {
 // kind: 'weekly' (weekday), 'nth' (nth weekday of the month, -1 = last),
 // or 'yearly' (nth weekday of a given month). day: 0 = Sunday ... 6 = Saturday.
 var FG_EVENTS = [
-  { kind: 'weekly', day: 3, title: 'Wednesday Gathering', place: '1701 14th Street W, Bradenton', note: 'Preaching, prayer and a home-cooked meal, then the mobile route' },
-  { kind: 'nth', day: 0, n: 3, title: 'Bradenton Outreach', place: '925 15th Street E, Bradenton', note: 'Monthly Sunday outreach' },
-  { kind: 'nth', day: 0, n: -1, title: 'Arcadia Outreach', place: '414 S. Brevard Ave, Arcadia', note: 'Monthly outreach, last Sunday' },
+  { kind: 'weekly', day: 3, title: 'Wednesday Gathering', place: '1701 14th Street W, Bradenton', note: 'Lunch 12:00 to 3:00 pm. Preaching, prayer and a home-cooked meal' },
+  { kind: 'nth', day: 0, n: 3, title: 'Bradenton Outreach', place: '925 15th Street E, Bradenton', note: 'Lunch 12:30 to 2:30 pm' },
+  { kind: 'nth', day: 0, n: -1, title: 'Arcadia Outreach', place: '414 S. Brevard Ave, Arcadia', note: 'Lunch 12:30 to 2:30 pm' },
   { kind: 'yearly', month: 11, day: 6, n: 1, title: 'Manatee County Christmas', place: '1303 17th Street W, Palmetto', note: 'Christmas for families who might not otherwise have one', gold: true },
-  { kind: 'once', year: 2026, month: 10, date: 18, title: "Culver's Fundraiser", place: "Culver's, 13020 SR 64 East, Bradenton", note: 'Eat dinner and support Freedom Gathering', gold: true },
-  { kind: 'once', year: 2026, month: 11, date: 16, title: "Culver's Fundraiser", place: "Culver's, 13020 SR 64 East, Bradenton", note: 'Eat dinner and support Freedom Gathering', gold: true },
-  { kind: 'once', year: 2027, month: 0, date: 20, title: "Culver's Fundraiser", place: "Culver's, 13020 SR 64 East, Bradenton", note: 'Eat dinner and support Freedom Gathering', gold: true },
-  { kind: 'once', year: 2027, month: 1, date: 17, title: "Culver's Fundraiser", place: "Culver's, 13020 SR 64 East, Bradenton", note: 'Eat dinner and support Freedom Gathering', gold: true },
-  { kind: 'once', year: 2027, month: 2, date: 17, title: "Culver's Fundraiser", place: "Culver's, 13020 SR 64 East, Bradenton", note: 'Eat dinner and support Freedom Gathering', gold: true },
-  { kind: 'once', year: 2027, month: 3, date: 21, title: "Culver's Fundraiser", place: "Culver's, 13020 SR 64 East, Bradenton", note: 'Eat dinner and support Freedom Gathering', gold: true },
+  { kind: 'once', year: 2026, month: 10, date: 18, title: "Culver's Fundraiser", place: "Culver's, 13020 SR 64 East, Bradenton", note: '5:00 to 8:00 pm. Eat dinner and support Freedom Gathering', gold: true },
+  { kind: 'once', year: 2026, month: 11, date: 16, title: "Culver's Fundraiser", place: "Culver's, 13020 SR 64 East, Bradenton", note: '5:00 to 8:00 pm. Eat dinner and support Freedom Gathering', gold: true },
+  { kind: 'once', year: 2027, month: 0, date: 20, title: "Culver's Fundraiser", place: "Culver's, 13020 SR 64 East, Bradenton", note: '5:00 to 8:00 pm. Eat dinner and support Freedom Gathering', gold: true },
+  { kind: 'once', year: 2027, month: 1, date: 17, title: "Culver's Fundraiser", place: "Culver's, 13020 SR 64 East, Bradenton", note: '5:00 to 8:00 pm. Eat dinner and support Freedom Gathering', gold: true },
+  { kind: 'once', year: 2027, month: 2, date: 17, title: "Culver's Fundraiser", place: "Culver's, 13020 SR 64 East, Bradenton", note: '5:00 to 8:00 pm. Eat dinner and support Freedom Gathering', gold: true },
+  { kind: 'once', year: 2027, month: 3, date: 21, title: "Culver's Fundraiser", place: "Culver's, 13020 SR 64 East, Bradenton", note: '5:00 to 8:00 pm. Eat dinner and support Freedom Gathering', gold: true },
+  { kind: 'once', year: 2026, month: 10, date: 6, title: 'Pop-Up Market', place: "Popi's Restaurant parking lot, 3911 Hwy 301, Ellenton", note: 'Two hour pop-up food distribution', gold: true },
+  { kind: 'once', year: 2026, month: 10, date: 13, title: 'Pop-Up Market', place: "Mimi 2 Beauty Supply, 925 15th St. E, Bradenton", note: 'Two hour pop-up food distribution', gold: true },
+  { kind: 'once', year: 2026, month: 10, date: 20, title: 'Pop-Up Market', place: "Sarasota, location coming soon", note: 'Two hour pop-up food distribution', gold: true },
   { kind: 'once', year: 2026, month: 11, date: 12, title: 'Arcadia Christmas', place: '414 S. Brevard Ave, Arcadia', note: 'Christmas party and gift giveaway', gold: true }
 ];
 
