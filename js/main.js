@@ -71,7 +71,7 @@ function wireForm(form) {
 var FG_EVENTS = [
   { kind: 'weekly', day: 3, title: 'Wednesday Gathering', place: '1701 14th Street W, Bradenton', note: 'Lunch 12:00 to 3:00 pm. Preaching, prayer and a home-cooked meal' },
   { kind: 'nth', day: 0, n: 3, title: 'Bradenton Outreach', place: '925 15th Street E, Bradenton', note: 'Lunch 12:30 to 2:30 pm' },
-  { kind: 'nth', day: 0, n: -1, title: 'Arcadia Outreach', place: '414 S. Brevard Ave, Arcadia', note: 'Lunch 12:30 to 2:30 pm' },
+  { kind: 'nth', day: 0, n: -1, skip: ['2026-10'], title: 'Arcadia Outreach', place: '414 S. Brevard Ave, Arcadia', note: 'Lunch 12:30 to 2:30 pm' },
   { kind: 'yearly', month: 11, day: 6, n: 1, title: 'Manatee County Christmas', place: '1303 17th Street W, Palmetto', note: 'Christmas for families who might not otherwise have one', gold: true },
   { kind: 'once', year: 2026, month: 10, date: 18, title: "Culver's Fundraiser", place: "Culver's, 13020 SR 64 East, Bradenton", note: '5:00 to 8:00 pm. Eat dinner and support Freedom Gathering', gold: true },
   { kind: 'once', year: 2026, month: 11, date: 16, title: "Culver's Fundraiser", place: "Culver's, 13020 SR 64 East, Bradenton", note: '5:00 to 8:00 pm. Eat dinner and support Freedom Gathering', gold: true },
@@ -82,6 +82,9 @@ var FG_EVENTS = [
   { kind: 'once', year: 2026, month: 10, date: 6, title: 'Pop-Up Market', place: "Popi's Restaurant parking lot, 3911 Hwy 301, Ellenton", note: 'Two hour pop-up food distribution', gold: true },
   { kind: 'once', year: 2026, month: 10, date: 13, title: 'Pop-Up Market', place: "Mimi 2 Beauty Supply, 925 15th St. E, Bradenton", note: 'Two hour pop-up food distribution', gold: true },
   { kind: 'once', year: 2026, month: 10, date: 20, title: 'Pop-Up Market', place: "Sarasota, location coming soon", note: 'Two hour pop-up food distribution', gold: true },
+  { kind: 'once', year: 2026, month: 10, date: 7, title: 'Stand Down for Veterans', place: 'Manatee County Fairgrounds, 1303 17th Street W, Palmetto', note: '8:00 am to 12:00 noon. Supporting our veterans and their families', gold: true },
+  { kind: 'once', year: 2026, month: 10, date: 19, title: "Water's Edge Visit", place: "Water's Edge Assisted Living & Memory Care, 2015 32nd Ave W, Bradenton", note: '11:00 am. Visiting with Ivory during their Farmers Market', gold: true },
+  { kind: 'once', year: 2026, month: 10, date: 22, title: 'Arcadia Outreach + Turkeys', place: '414 S. Brevard Ave, Arcadia', note: 'Lunch 12:30 to 2:30 pm. Every family goes home with a Thanksgiving turkey', gold: true },
   { kind: 'once', year: 2026, month: 11, date: 12, title: 'Arcadia Christmas', place: '414 S. Brevard Ave, Arcadia', note: 'Christmas party and gift giveaway', gold: true }
 ];
 
@@ -105,6 +108,8 @@ function eventsFor(year, month) {
       if (ev.year === year && ev.month === month) add(ev.date, ev);
     } else if (ev.kind === 'weekly') {
       for (var d = 1; d <= days; d++) if (new Date(year, month, d).getDay() === ev.day) add(d, ev);
+    } else if (ev.skip && ev.skip.indexOf(year + '-' + month) !== -1) {
+      // this month's date was moved; a 'once' entry covers it
     } else if (ev.kind === 'nth' || (ev.kind === 'yearly' && ev.month === month)) {
       var date = nthWeekday(year, month, ev.day, ev.n);
       if (date) add(date, ev);
