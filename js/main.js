@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('form[data-form]').forEach(wireForm);
 });
 
-// Contact forms are emailed through FormSubmit (formsubmit.co). The first message
-// sent to a new address triggers a one-time "activate" email that must be clicked.
-var FG_FORM_EMAIL = 'cathyfreedomgathering@yahoo.com';
+// Forms are emailed by our site-forms Cloudflare worker (Resend). The worker holds the
+// recipient address, so the page only names the site. Replaced FormSubmit in Nov 2026.
+var FORM_ENDPOINT = 'https://site-forms.alfanoministries.workers.dev/freedom-gathering';
 var FG_FORM_SUBJECTS = {
   volunteer: 'New volunteer sign-up from the website',
   speak: 'Speaking invitation from the website',
@@ -43,13 +43,10 @@ function wireForm(form) {
     if (data._honey) return; // a bot filled the hidden field
     delete data._honey;
     data._subject = FG_FORM_SUBJECTS[form.dataset.form] || 'Website message';
-    data._template = 'table';
-    data._captcha = 'false';
-    if (data.email) data._replyto = data.email;
     button.disabled = true;
     status.className = 'form-status';
     status.textContent = 'Sending...';
-    fetch('https://formsubmit.co/ajax/' + FG_FORM_EMAIL, {
+    fetch(FORM_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(data)
